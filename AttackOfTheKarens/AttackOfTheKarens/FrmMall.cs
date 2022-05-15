@@ -23,6 +23,11 @@ namespace AttackOfTheKarens {
     private int yOwner;
     private char[][] map;
     private List<Store> stores;
+    private bool button1Clicked;
+    private bool button2Clicked;
+    private bool button3Clicked;
+    private bool button4Clicked;
+    private bool button5Clicked;
 
     // ctor
     public FrmMall() {
@@ -192,11 +197,55 @@ namespace AttackOfTheKarens {
     }
 
     private void tmrUpdateKarens_Tick(object sender, EventArgs e) {
-      if (stores != null && stores.Count > 0) {
-        foreach (Store store in stores) {
-          store.Update();
-        }
-      }
+
+            if (stores != null && stores.Count > 0 && button5Clicked)
+            {
+                foreach (Store store in stores)
+                {
+                    store.button5Update();
+                }
+            }
+
+            if (stores != null && stores.Count > 0 && button4Clicked)
+            {
+                foreach (Store store in stores)
+                {
+                    store.button4Update();
+                }
+            }
+
+            if (stores != null && stores.Count > 0 && button3Clicked)
+            {
+                foreach (Store store in stores)
+                {
+                    store.button3Update();
+                }
+            }
+
+            if (stores != null && stores.Count > 0 && button2Clicked)
+            {
+                foreach (Store store in stores)
+                {
+                    store.button2Update();
+                }
+            }
+
+            if (stores != null && stores.Count > 0 && button1Clicked)
+            {
+                foreach (Store store in stores)
+                {
+                    store.button1Update();
+                }
+            }
+
+            if (stores != null && stores.Count > 0)
+            {
+                foreach (Store store in stores)
+                {
+                    store.Update();
+                }
+            }
+            
     }
 
     private void tmrMoveOwner_Tick(object sender, EventArgs e) {
@@ -207,5 +256,83 @@ namespace AttackOfTheKarens {
     private void tmrUpdateGame_Tick(object sender, EventArgs e) {
       lblMoneySaved.Text = Game.Score.ToString("$ #,##0.00");
     }
-  }
+
+/// <summary>
+/// First button that cost $50 ups the money gained from karens from $5.95 to $10.95
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+    private void button1_Click(object sender, EventArgs e)
+     {
+         if (Game.Score >= 50)
+            {
+                Game.SubFromScore(50f);
+                button1Clicked = true;
+                button1.Hide();
+                button2.Visible = true;
+            }
+          
+      }
+
+/// <summary>
+/// Second Button that appears after first that increases the output from $10.95 to $15.95
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (Game.Score >= 150)
+            {
+                Game.SubFromScore(150f);
+                button2Clicked = true;
+                button2.Hide();
+                button3.Visible = true;
+            }
+
+        }
+/// <summary>
+/// Third Button that appears that increases the output from $15.95 to $20.95
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+        private void button3_Click(object sender, EventArgs e)
+        {
+            if (Game.Score >= 300)
+            {
+                Game.SubFromScore(300f);
+                button3Clicked = true;
+                button3.Hide();
+                button4.Visible = true;
+            }
+        }
+/// <summary>
+/// Fourth Button that appears that increases the output from $20.95 to $25.95
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (Game.Score >= 750)
+            {
+                Game.SubFromScore(750f);
+                button4Clicked = true;
+                button4.Hide();
+                button5.Visible = true;
+            }
+        }
+/// <summary>
+/// Fifth Button that appears that increases the output from $25.95 to $30.95
+/// </summary>
+/// <param name="sender"></param>
+/// <param name="e"></param>
+        private void button5_Click(object sender, EventArgs e)
+        {
+            if (Game.Score >= 1200)
+            {
+                Game.SubFromScore(1200f);
+                button5Clicked = true;
+                button5.Hide();
+            }
+        }
+    }
 }

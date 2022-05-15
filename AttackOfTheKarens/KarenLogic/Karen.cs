@@ -35,13 +35,70 @@ namespace KarenLogic {
       this.pic.BringToFront();
     }
 
-    public void Damage(int amount) {
-      Health -= amount;
-      if (Health < 0) {
-        Game.AddToScore(5.95f);
-        this.pic.Visible = false;
-        this.IsPresent = false;
-      }
+        public void Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(5.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
+
+        public void button1Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(10.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
+
+        public void button2Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(15.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
+
+        public void button3Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(20.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
+
+        public void button4Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(25.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
+
+        public void button5Damage(int amount)
+        {
+            Health -= amount;
+            if (Health < 0)
+            {
+                Game.AddToScore(30.95f);
+                this.pic.Visible = false;
+                this.IsPresent = false;
+            }
+        }
     }
-  }
 }
